@@ -112,6 +112,7 @@ const SearchBooks = () => {
         </h2>
         <CardColumns>
           {searchedBooks.map((book) => {
+            console.log(book);
             return (
               <Card key={book.bookId} border='dark'>
                 {book.image ? (
@@ -120,7 +121,7 @@ const SearchBooks = () => {
                 <Card.Body>
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
-                  <p className='small'>Link:{" "}<a href={book.link} target="_blank" rel="noopener noreferrer">{book.title}</a></p>
+                  <p className='small'>Link:{" "}<a href={'https://books.google.com/books?id=' + book.bookId} target="_blank" rel="noopener noreferrer">{book.title}</a></p>
                   <Card.Text>{book.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
